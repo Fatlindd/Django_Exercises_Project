@@ -8,3 +8,6 @@ def home(request):
 def detail(request, pk):
     return HttpResponse(f"Details of department with id {pk}")
 
+
+def update(request, pk):
+    return HttpResponse(f"You're department faculty with id {pk}")
