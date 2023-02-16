@@ -11,3 +11,7 @@ def detail(request, pk):
 
 def update(request, pk):
     return HttpResponse(f"You're department faculty with id {pk}")
+
+
+def delete(request, pk):
+    return HttpResponse(f"You're deleting department with id pk {pk}")
