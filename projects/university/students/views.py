@@ -7,3 +7,7 @@ def home(request):
 
 def detail(request, pk):
     return HttpResponse(f"Details of student with id {pk}")
+
+
+def update(request, pk):
+    return HttpResponse(f"You're updating student with id {pk}.")
