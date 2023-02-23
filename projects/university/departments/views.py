@@ -9,7 +9,12 @@ def home(request):
 
 
 def detail(request, pk):
-    return HttpResponse(f"Details of department with id {pk}")
+    department = Department.objects.get(pk=pk)
+    students = department.student_set.all()
+    students = [f'{student.first_name} {student.last_name}' for student in students]
+    students = ', '.join(students)
+    s = f'Name: <i>{}</i><br>Opened on: <i>{}</i><br>Students: <i>{}</i>'
+    return HttpResponse(s.format(department.name, department.opened_on, students))
 
 
 def update(request, pk):
