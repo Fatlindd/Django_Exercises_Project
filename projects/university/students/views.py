@@ -9,7 +9,9 @@ def home(request):
 
 
 def detail(request, pk):
-    return HttpResponse(f"Details of student with id {pk}")
+    student = Student.objects.get(pk=pk)
+    output = '{} {} - <i>{}</i>'
+    return HttpResponse(output.format(student.first_name, student.last_name, student.department.name))
 
 
 def update(request, pk):
