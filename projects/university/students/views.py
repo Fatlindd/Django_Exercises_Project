@@ -1,8 +1,11 @@
 from django.http import HttpResponse
+from .models import Student
 
 
 def home(request):
-    return HttpResponse("Students.")
+    students = Student.objects.all()
+    output = ''.join([f'{student.first_name} {student.last_name}<br>' for student in students])
+    return HttpResponse(output)
 
 
 def detail(request, pk):
