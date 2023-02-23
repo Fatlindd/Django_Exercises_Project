@@ -1,8 +1,11 @@
 from django.http import HttpResponse
+from .models import Department
 
 
 def home(request):
-    return HttpResponse("Welcome to our University.")
+    departments = Department.objects.all()
+    output = ''.join([f'<h2>{departments}</h2>' for department in departments])
+    return HttpResponse(output)
 
 
 def detail(request, pk):
